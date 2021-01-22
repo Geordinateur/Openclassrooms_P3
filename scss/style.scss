@@ -1,0 +1,7 @@
+@import "libs/reset.scss";
+@import "libs/mixins.scss";
+@import "libs/scrollbar-mixin.scss";
+
+h3 {
+    @include titre;
+}

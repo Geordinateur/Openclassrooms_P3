@@ -1,0 +1,31 @@
+@mixin scrollbars($size, $foreground-color, $background-color, $border-width: 0) {
+	// Blink browsers (Chrome, Edge)
+	&::-webkit-scrollbar {
+		width: $size;
+		height: $size;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $background-color;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $foreground-color;
+		@if $border-width != 0 {
+			border: $border-width solid $background-color;
+		}
+	}
+
+	&:hover::-webkit-scrollbar-thumb {
+		background: lighten($foreground-color, 5%);
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: lighten($foreground-color, 10%);
+	}
+
+	// Firefox
+	& {
+		scrollbar-color: $foreground-color $background-color;
+	}
+}
