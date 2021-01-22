@@ -1,7 +1,103 @@
 @import "libs/reset.scss";
 @import "libs/mixins.scss";
 @import "libs/scrollbar-mixin.scss";
+@import "../css/libs/all.css";
 
-h3 {
-    @include titre;
+// mes variables
+$shadow: 0.0em 0.0em 0.5em rgba(0, 0, 0, 0.3);
+$enable: grey;
+$disable: lightgrey;
+$border-radius: 100px;
+$lightpurple: #ef74da;
+$purple: #9d59dc;
+$font-family: 'Raleway', sans-serif;
+
+body {
+    font-family: $font-family;
+    font-size: 16px;
+    background: white;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+h1, h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.0rem;
+}
+
+header {
+    width: 100%;
+    img {
+        width: 12rem;
+        heigth: auto;
+        padding: 1.0rem;
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    box-shadow: $shadow;
+    margin-bottom: 0.0rem;
+    z-index: 1;
+}
+nav {
+    width: 100%;
+    form {
+        width: 100%;
+        display: block;
+        color: $enable;
+        background: $disable;
+        margin-bottom: 1.0rem;
+        padding: 1.0rem;
+        display: flex;
+        justify-content: center;
+
+        input{
+            border: 0;
+            background: $disable;
+            color: $enable;
+            font-family: $font-family;
+            width: auto;
+            padding: 0.0rem 0.8rem;
+        }
+    }
+    p {
+        font-size: 1.0rem;
+        text-align: center;
+    }
+    a {
+    }
+    margin-bottom: 5.0rem;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    margin-top: 2.0rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.2rem;
+    border-radius: $border-radius;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, $lightpurple, $purple);
+}
+
+.btn-nav {
+    width: 20.0rem;
+    box-shadow: $shadow;
+}
+
+aside {
+    ol {
+        color: green;
+        list-style: decimal;
+    }
+    li::before {
+      content: "•"; /* Insert content that looks like bullets */
+      margin-right: 18px;
+      color: blue; /* Or a color you prefer */
+    }
 }
