@@ -5,9 +5,13 @@
 
 // mes variables
 $shadow: 0.0em 0.0em 0.5em rgba(0, 0, 0, 0.3);
-$enable: grey;
-$disable: lightgrey;
-$border-radius: 100px;
+$primary: #9356dc;
+$secondary: #ef74da;
+$tertiary: #353535;
+$quaternary:#eaeaea;
+$quinary: #f6f6f6;
+$border-radius-totaly: 50px;
+$border-radius-medium: 10px;
 $lightpurple: #ef74da;
 $purple: #9d59dc;
 $font-family: 'Raleway', sans-serif;
@@ -15,7 +19,6 @@ $font-family: 'Raleway', sans-serif;
 body {
     font-family: $font-family;
     font-size: 16px;
-    background: white;
     display: flex;
     flex-flow: row wrap;
 }
@@ -24,8 +27,11 @@ body {
 h1, h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: center;
     padding: 1.0rem;
+}
+
+h3 {
+    font-weight: bold;
 }
 
 header {
@@ -44,11 +50,13 @@ header {
 }
 nav {
     width: 100%;
+    background: $quinary;
+    padding-bottom: 3.5rem;
+    text-align: center;
     form {
-        width: 100%;
         display: block;
-        color: $enable;
-        background: $disable;
+        color: $tertiary;
+        background: $quaternary;
         margin-bottom: 1.0rem;
         padding: 1.0rem;
         display: flex;
@@ -56,20 +64,13 @@ nav {
 
         input{
             border: 0;
-            background: $disable;
-            color: $enable;
+            background: $quaternary;
+            color: $tertiary;
             font-family: $font-family;
             width: auto;
             padding: 0.0rem 0.8rem;
         }
     }
-    p {
-        font-size: 1.0rem;
-        text-align: center;
-    }
-    a {
-    }
-    margin-bottom: 5.0rem;
 }
 
 .btn {
@@ -79,10 +80,10 @@ nav {
     margin-left: auto;
     margin-right: auto;
     padding: 1.2rem;
-    border-radius: $border-radius;
+    border-radius: $border-radius-totaly;
     color: white;
     font-weight: bold;
-    background: linear-gradient(to bottom right, $lightpurple, $purple);
+    background: linear-gradient(to bottom right, $secondary, $primary);
 }
 
 .btn-nav {
@@ -91,13 +92,86 @@ nav {
 }
 
 aside {
+    width: 100%;
+    padding: 1.5rem 0;
+    h2 {
+        text-align: left;
+        padding: 1.0rem 2.0rem;
+    }
     ol {
-        color: green;
-        list-style: decimal;
+        color: black;
+        list-style: none; 
+        counter-reset: li;
+        padding: 0.0rem;
     }
     li::before {
-      content: "•"; /* Insert content that looks like bullets */
-      margin-right: 18px;
-      color: blue; /* Or a color you prefer */
+        // repris sur le web, j'ai pas tout compris...
+        content: counter(li); color: white;
+        display: inline-block; width: 1em;
+        margin-left: -1.2rem;
+        margin-right: 1.2rem;
+        padding: 0.3rem;
+        background: $primary;
+        border-radius: $border-radius-totaly;
+        text-align: center;
+    }
+    li {
+        counter-increment: li;
+        background: $quinary;
+        border-radius: $border-radius-medium;
+        box-shadow: $shadow;
+        padding: 1.5rem 0.5rem;
+        margin: 2.0rem 2.0rem;
+    }
+    .fas::before {
+        padding-right: 1.2rem;
+    }
+}
+
+section {
+    width: 100%;
+    background: $quinary;
+    padding: 2.0rem 0;
+    .div {
+        display: block;
+        box-shadow: $shadow;
+        margin: 1.0rem;
+        border-radius: $border-radius-medium;
+        padding-bottom: 1.0rem;
+        h3,p {
+            padding-left: 1.0rem;
+            padding-top: 0.5rem;
+        }
+
+    }
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 11.0rem;
+        border-radius: 10px 10px 0 0;
+        padding-bottom: 0.5rem;
+    }
+    .new::after {
+        content: "Nouveau"; /* Insert content that looks like bullets */
+        display: inline; 
+        color: green; /* Or a color you prefer */
+        background: lightgreen;
+        position: relative;
+        float: right;
+        top: -14.9rem;
+        bottom: 100%; left: 0;
+        padding: 0.5rem 1.0rem;
+        margin: 1.0rem;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+}
+
+
+
+footer {
+    .logo {
+        width: 50%;
     }
 }

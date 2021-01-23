@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -10,7 +9,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ul, li,
+dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
@@ -48,18 +47,22 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+a {
+  color: black; }
+
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
-  background: white;
   display: flex;
   flex-flow: row wrap; }
 
 h1, h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
   padding: 1.0rem; }
+
+h3 {
+  font-weight: bold; }
 
 header {
   width: 100%;
@@ -76,26 +79,24 @@ header {
 
 nav {
   width: 100%;
-  margin-bottom: 5.0rem; }
+  background: #f6f6f6;
+  padding-bottom: 3.5rem;
+  text-align: center; }
   nav form {
-    width: 100%;
     display: block;
-    color: grey;
-    background: lightgrey;
+    color: #353535;
+    background: #eaeaea;
     margin-bottom: 1.0rem;
     padding: 1.0rem;
     display: flex;
     justify-content: center; }
     nav form input {
       border: 0;
-      background: lightgrey;
-      color: grey;
+      background: #eaeaea;
+      color: #353535;
       font-family: "Raleway", sans-serif;
       width: auto;
       padding: 0.0rem 0.8rem; }
-  nav p {
-    font-size: 1.0rem;
-    text-align: center; }
 
 .btn {
   display: block;
@@ -104,23 +105,85 @@ nav {
   margin-left: auto;
   margin-right: auto;
   padding: 1.2rem;
-  border-radius: 100px;
+  border-radius: 50px;
   color: white;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #ef74da, #9d59dc); }
+  background: linear-gradient(to bottom right, #ef74da, #9356dc); }
 
 .btn-nav {
   width: 20.0rem;
   box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3); }
 
-aside ol {
-  color: green;
-  list-style: decimal; }
-aside li::before {
-  content: "•";
-  /* Insert content that looks like bullets */
-  margin-right: 18px;
-  color: blue;
-  /* Or a color you prefer */ }
+aside {
+  width: 100%;
+  padding: 1.5rem 0; }
+  aside h2 {
+    text-align: left;
+    padding: 1.0rem 2.0rem; }
+  aside ol {
+    color: black;
+    list-style: none;
+    counter-reset: li;
+    padding: 0.0rem; }
+  aside li::before {
+    content: counter(li);
+    color: white;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.2rem;
+    margin-right: 1.2rem;
+    padding: 0.3rem;
+    background: #9356dc;
+    border-radius: 50px;
+    text-align: center; }
+  aside li {
+    counter-increment: li;
+    background: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3);
+    padding: 1.5rem 0.5rem;
+    margin: 2.0rem 2.0rem; }
+  aside .fas::before {
+    padding-right: 1.2rem; }
+
+section {
+  width: 100%;
+  background: #f6f6f6;
+  padding: 2.0rem 0; }
+  section .div {
+    display: block;
+    box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3);
+    margin: 1.0rem;
+    border-radius: 10px;
+    padding-bottom: 1.0rem; }
+    section .div h3, section .div p {
+      padding-left: 1.0rem;
+      padding-top: 0.5rem; }
+  section img {
+    object-fit: cover;
+    width: 100%;
+    height: 11.0rem;
+    border-radius: 10px 10px 0 0;
+    padding-bottom: 0.5rem; }
+  section .new::after {
+    content: "Nouveau";
+    /* Insert content that looks like bullets */
+    display: inline;
+    color: green;
+    /* Or a color you prefer */
+    background: lightgreen;
+    position: relative;
+    float: right;
+    top: -14.9rem;
+    bottom: 100%;
+    left: 0;
+    padding: 0.5rem 1.0rem;
+    margin: 1.0rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold; }
+
+footer .logo {
+  width: 50%; }
 
 /*# sourceMappingURL=style.css.map */
