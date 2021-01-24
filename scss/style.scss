@@ -14,7 +14,7 @@ $border-radius-totaly: 50px;
 $border-radius-medium: 10px;
 $lightpurple: #ef74da;
 $purple: #9d59dc;
-$font-family: 'Raleway', sans-serif;
+$font-family: 'Roboto', sans-serif;
 
 body {
     font-family: $font-family;
@@ -132,10 +132,10 @@ section {
     width: 100%;
     background: $quinary;
     padding: 2.0rem 0;
-    .div {
+    div.restaurant {
         display: block;
         box-shadow: $shadow;
-        margin: 1.0rem;
+        margin: 1.0rem 1.0rem;
         border-radius: $border-radius-medium;
         padding-bottom: 1.0rem;
         h3,p {
@@ -151,27 +151,44 @@ section {
         border-radius: 10px 10px 0 0;
         padding-bottom: 0.5rem;
     }
-    .new::after {
+    .new::before {
         content: "Nouveau"; /* Insert content that looks like bullets */
         display: inline; 
         color: green; /* Or a color you prefer */
         background: lightgreen;
         position: relative;
+        margin-top: -1.8rem;
         float: right;
-        top: -14.9rem;
-        bottom: 100%; left: 0;
         padding: 0.5rem 1.0rem;
-        margin: 1.0rem;
         border-radius: 5px;
         font-size: 0.8rem;
         font-weight: bold;
+        top: 2.5rem;
+        right: 1.0rem;
       }
+    .like {
+        display: block;
+        position: relative;
+        bottom: 2.3rem;
+        right: 2.0rem;
+        float: right;
+        font-size: 1.8rem;
+    }
+    .far.fa-heart:hover,.far.fa-heart:active{
+        font-weight: 900;
+        background: -webkit-linear-gradient($primary, $secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
-
-
 footer {
+    background: $tertiary;
+    color: white;
+    width: 100%;
+    padding: 2.0rem;
     .logo {
-        width: 50%;
+        width: 8.0rem;
+        filter: invert(100%); 
     }
 }
