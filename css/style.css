@@ -54,28 +54,36 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   display: flex;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  background: #f6f6f6; }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 1.0rem; }
+  padding: 1rem; }
 
 h3 {
   font-weight: bold; }
 
 header {
   width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
   box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3);
-  margin-bottom: 0.0rem;
-  z-index: 1; }
+  margin-bottom: 0rem;
+  z-index: 1;
+  align-items: center;
+  padding: 0 2rem; }
   header img {
     width: 12rem;
-    heigth: auto;
-    padding: 1.0rem;
+    height: auto;
+    padding: 1rem;
     display: block;
     margin-left: auto;
     margin-right: auto; }
+  header .fa-arrow-left {
+    font-size: 1.2rem; }
 
 nav {
   width: 100%;
@@ -84,47 +92,69 @@ nav {
   text-align: center; }
   nav form {
     display: block;
-    color: #353535;
+    color: #99e2d0;
     background: #eaeaea;
-    margin-bottom: 1.0rem;
-    padding: 1.0rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
     display: flex;
     justify-content: center; }
     nav form input {
       border: 0;
       background: #eaeaea;
-      color: #353535;
+      color: #99e2d0;
       font-family: "Roboto", sans-serif;
       width: auto;
-      padding: 0.0rem 0.8rem; }
+      padding: 0rem 0.8rem; }
+
+nav.menu {
+  display: flex;
+  padding-bottom: 0;
+  align-items: flex-end;
+  height: 265px; }
+  nav.menu h2 {
+    color: black;
+    font-family: Shrikhand;
+    font-weight: normal;
+    margin-bottom: -0.3rem; }
+
+.a-la-francaise {
+  background: no-repeat url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+  background-size: cover; }
+  .a-la-francaise div {
+    width: 100%;
+    background: white;
+    border-radius: 30px 30px 0 0;
+    text-align: left;
+    padding-top: 1rem; }
 
 .btn {
   display: block;
   text-align: center;
-  margin-top: 2.0rem;
+  margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
   padding: 1.2rem;
   border-radius: 50px;
   color: white;
   font-weight: bold;
-  background: linear-gradient(to bottom right, #ef74da, #9356dc); }
+  background: linear-gradient(to bottom right, #ff79da, #9356dc); }
 
 .btn-nav {
-  width: 20.0rem;
+  width: 20rem;
   box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3); }
 
 aside {
   width: 100%;
+  background: white;
   padding: 1.5rem 0; }
   aside h2 {
     text-align: left;
-    padding: 1.0rem 2.0rem; }
+    padding: 1rem 2rem; }
   aside ol {
     color: black;
     list-style: none;
     counter-reset: li;
-    padding: 0.0rem; }
+    padding: 0rem; }
   aside li::before {
     content: counter(li);
     color: white;
@@ -142,27 +172,26 @@ aside {
     border-radius: 10px;
     box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3);
     padding: 1.5rem 0.5rem;
-    margin: 2.0rem 2.0rem; }
+    margin: 2rem 2rem; }
   aside .fas::before {
     padding-right: 1.2rem; }
 
 section {
   width: 100%;
-  background: #f6f6f6;
-  padding: 2.0rem 0; }
+  padding: 1.5rem 0; }
   section div.restaurant {
-    display: block;
     box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3);
-    margin: 1.0rem 1.0rem;
+    margin: 1rem 1rem;
     border-radius: 10px;
-    padding-bottom: 1.0rem; }
-    section div.restaurant h3, section div.restaurant p {
-      padding-left: 1.0rem;
+    padding-bottom: 1rem; }
+    section div.restaurant h3,
+    section div.restaurant p {
+      padding-left: 1rem;
       padding-top: 0.5rem; }
   section img {
     object-fit: cover;
     width: 100%;
-    height: 11.0rem;
+    height: 11rem;
     border-radius: 10px 10px 0 0;
     padding-bottom: 0.5rem; }
   section .new::before {
@@ -175,32 +204,62 @@ section {
     position: relative;
     margin-top: -1.8rem;
     float: right;
-    padding: 0.5rem 1.0rem;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     font-size: 0.8rem;
     font-weight: bold;
     top: 2.5rem;
-    right: 1.0rem; }
-  section .like {
-    display: block;
-    position: relative;
-    bottom: 2.3rem;
-    right: 2.0rem;
-    float: right;
-    font-size: 1.8rem; }
-  section .far.fa-heart:hover, section .far.fa-heart:active {
-    font-weight: 900;
-    background: -webkit-linear-gradient(#9356dc, #ef74da);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    right: 1rem; }
+
+section.menu h3 {
+  text-transform: uppercase;
+  flex-basis: 100%;
+  border: 10px solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(to right, #99e2d0 11%, rgba(255, 255, 255, 0) 11% 90%); }
+section.menu hr {
+  border: none;
+  border-top: 3px solid #99e2d0;
+  overflow: visible;
+  text-align: left;
+  height: 5px;
+  width: 20px; }
+
+.like {
+  display: block;
+  position: relative;
+  bottom: 2.3rem;
+  right: 2rem;
+  float: right;
+  font-size: 1.8rem; }
+
+.far.fa-heart:hover,
+.far.fa-heart:active {
+  font-weight: 900;
+  background: -webkit-linear-gradient(#9356dc, #ff79da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
 
 footer {
   background: #353535;
   color: white;
   width: 100%;
-  padding: 2.0rem; }
+  margin-top: 2rem;
+  padding: 2rem; }
   footer .logo {
-    width: 8.0rem;
-    filter: invert(100%); }
+    width: 7rem;
+    filter: invert(100%);
+    padding-bottom: 0.9rem; }
+  footer li {
+    padding: 0.4rem 0; }
+  footer li:nth-child(3),
+  footer :nth-child(4) {
+    margin-left: -1.6rem; }
+  footer .fa-ul {
+    margin-left: 1.5rem; }
 
 /*# sourceMappingURL=style.css.map */

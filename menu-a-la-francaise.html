@@ -7,61 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- mes feuilles de styles -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (min-width: 1024px)" href="css/desktop-style.css" />
+    <!--icons awesome-->
+    <link href="css/libs/all.css" rel="stylesheet">
+    <!--police Raleway google-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
     <title>Oh My Food! Á la française.</title>
 </head>
 
 <body>
 
     <header>
-        <img class="logo header menu" src="images/logo/ohmyfood.png" alt="Le logo de Oh my food">
-        <img class="header menu" src="images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="Restaurant Á la française">
+        <a href="#"><i class="fas fa-arrow-left" onclick="history.back()"></i></a>
+        <img class="logo header" src="images/logo/ohmyfood.png" alt="Le logo de Oh my food">
+        <a href="#"><i class="fas fa-arrow-left" onclick="history.back()"></i></a>
     </header>
 
-    <section>
-        <h2 class="menu-title">Á la française</h2>
-        <h3 class="menu-plat">Entrées</h3>
+    <nav class="menu a-la-francaise">
+        <div>
+            <h2>Á la française</h2>
+            <a class="like" href="#"><i class="far fa-heart"></i></a>
+        </div>
+    </nav>
+
+    <section class="menu">
+        <h3>Entrées</h3>
         <dl>
             <dt>Tartare de poulpe acidulé</dt>
             <dd>Aux zests d'orange</dd>
-            <dd class="menu price">25</dd>
+            <dd class="price">25</dd>
             <dt>Velouté de légumes d'antan</dt>
             <dd>Carotte, panis, topinambour</dd>
-            <dd class="menu price">35</dd>
+            <dd class="price">35</dd>
             <dt>Soupe à l'oignon</dt>
             <dd>Revisitée</dd>
-            <dd class="menu price">20</dd>
+            <dd class="price">20</dd>
         </dl>
-        <h3 class="menu plat">Plats</h3>
+        <h3 class="plat">Plats</h3>
         <dl>
             <dt>Coquilles Saint-Jacques</dt>
             <dd>Accompagnées d'une purée de panais</dd>
-            <dd class="menu price">40</dd>
+            <dd class="price">40</dd>
             <dt>Magret de canard</dt>
             <dd>Et parmentier de pommes de terres</dd>
-            <dd class="menu price">35</dd>
+            <dd class="price">35</dd>
             <dt>Pigeonneau d'Ille-et-Vilaine</dt>
             <dd>Sur son lit de gnicchis aux légumes</dd>
-            <dd class="menu price">44</dd>
+            <dd class="price">44</dd>
         </dl>
-        <h3 class="menu plat">Desserts</h3>
+        <h3 class="plat">Desserts</h3>
         <dl>
             <dt>Pétales de violettes glacés</dt>
             <dd>Et purée de noisettes</dd>
-            <dd class="menu price">18</dd>
+            <dd class="price">18</dd>
             <dt>Fondant au chocolat</dt>
             <dd>Revisité</dd>
-            <dd class="menu price">22</dd>
+            <dd class="price">22</dd>
             <dt>Millefeuille croustillant</dt>
             <dd>Myrtilles et pâte d'amande</dd>
-            <dd class="menu price">23</dd>
+            <dd class="price">23</dd>
         </dl>
         <a class="btn confirm" href="#">Commander</a>
     </section>
     <footer>
         <img class="logo footer" src="images/logo/ohmyfood.png" alt="Le logo de Oh my food">
-        <ul>
-            <li class="li footer add-restaurant">Proposer un restauntant</li>
-            <li class="li footer become-partenaire">Devenir partenaire</li>
+        <ul class="fa-ul">
+            <li><span class="fa-li"><i class="fas fa-utensils"></i></span>Proposer un restauntant</li>
+            <li><span class="fa-li"><i class="fas fa-hands-helping"></i></span>Devenir partenaire</li>
             <li>Mention légales</li>
             <li>Contact</li>
         </ul>
