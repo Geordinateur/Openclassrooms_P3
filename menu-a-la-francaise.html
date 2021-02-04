@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- mes feuilles de styles -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="screen and (min-width: 1024px)" href="css/desktop-style.css" />
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" media="screen and (min-width: 1024px)" href="public/css/desktop-style.css" />
     <!--icons awesome-->
-    <link href="css/libs/all.css" rel="stylesheet">
+    <link href="public/css/libs/all.css" rel="stylesheet">
     <!--police Raleway google-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -22,10 +22,10 @@
     <header>
         <a href="#"><i class="fas fa-arrow-left" onclick="history.back()"></i></a>
         <img class="logo header" src="images/logo/ohmyfood.png" alt="Le logo de Oh my food">
-        <a href="#"><i class="fas fa-arrow-left" onclick="history.back()"></i></a>
+        <i class="fas fa-arrow-left disable"></i>
     </header>
 
-    <nav class="menu a-la-francaise">
+    <nav class="menu menu--a-la-francaise">
         <div>
             <h2>Á la française</h2>
             <a class="like" href="#"><i class="far fa-heart"></i></a>
@@ -34,42 +34,90 @@
 
     <section class="menu">
         <h3>Entrées</h3>
-        <dl>
-            <dt>Tartare de poulpe acidulé</dt>
-            <dd>Aux zests d'orange</dd>
-            <dd class="price">25</dd>
-            <dt>Velouté de légumes d'antan</dt>
-            <dd>Carotte, panis, topinambour</dd>
-            <dd class="price">35</dd>
-            <dt>Soupe à l'oignon</dt>
-            <dd>Revisitée</dd>
-            <dd class="price">20</dd>
-        </dl>
+        <div class="content content__1">
+            <div>
+                <h4>Tartare de poulpe acidulé</h4>
+                <p>Aux zests d'orange</p>
+            </div>
+            <div class="price">
+                <p>25</p>
+            </div>
+        </div>
+        <div class="content content__2">
+            <div>
+                <h4>Velouté de légumes</h4>
+                <p>Carotte, panis, topinambour</p>
+            </div>
+            <div class="price">
+                <p>35</p>
+            </div>
+        </div>
+        <div class="content content__3">
+            <div>
+                <h4>Soupe à l'oignon</h4>
+                <p>Revisitée</p>
+            </div>
+            <div class="price">
+                <p>20</p>
+            </div>
+        </div>
         <h3 class="plat">Plats</h3>
-        <dl>
-            <dt>Coquilles Saint-Jacques</dt>
-            <dd>Accompagnées d'une purée de panais</dd>
-            <dd class="price">40</dd>
-            <dt>Magret de canard</dt>
-            <dd>Et parmentier de pommes de terres</dd>
-            <dd class="price">35</dd>
-            <dt>Pigeonneau d'Ille-et-Vilaine</dt>
-            <dd>Sur son lit de gnicchis aux légumes</dd>
-            <dd class="price">44</dd>
-        </dl>
+       <div class="content content__1">
+            <div>
+                <h4>Coquilles Saint-Jacques</h4>
+                <p>Accompagnées d'une purée de panais</p>
+            </div>
+            <div class="price">
+                <p>40</p>
+            </div>
+        </div>
+        <div class="content content__2">
+            <div>
+                <h4>Magret de canard</h4>
+                <p>Et parmentier de pommes de terres</p>
+            </div>
+            <div class="price">
+                <p>35</p>
+            </div>
+        </div>
+         <div class="content content__3">
+            <div>
+                <h4>Pigeonneau d'Ile-et-Vilaine</h4>
+                <p>Sur son lit de gnicchis aux légumes</p>
+            </div>
+            <div class="price">
+                <p>44</p>
+            </div>
+        </div>
         <h3 class="plat">Desserts</h3>
-        <dl>
-            <dt>Pétales de violettes glacés</dt>
-            <dd>Et purée de noisettes</dd>
-            <dd class="price">18</dd>
-            <dt>Fondant au chocolat</dt>
-            <dd>Revisité</dd>
-            <dd class="price">22</dd>
-            <dt>Millefeuille croustillant</dt>
-            <dd>Myrtilles et pâte d'amande</dd>
-            <dd class="price">23</dd>
-        </dl>
-        <a class="btn confirm" href="#">Commander</a>
+        <div class="content content__1">
+            <div>
+                <h4>Pétales de violettes glacés</h4>
+                <p>Et purée de noisettes</p>
+            </div>
+            <div class="price">
+                <p>18</p>
+            </div>
+        </div>
+         <div class="content content__2">
+            <div>
+                <h4>Fondant au chocolat</h4>
+                <p>Revisité</p>
+            </div>
+            <div class="price">
+                <p>22</p>
+            </div>
+        </div>
+         <div class="content content__3">
+            <div>
+                <h4>Millefeuille croustillant</h4>
+                <p>Myrtilles et pâte d'amande</p>
+            </div>
+            <div class="price">
+                <p>23</p>
+            </div>
+        </div>
+        <a class="btn btn__confirm" href="#">Commander</a>
     </section>
     <footer>
         <img class="logo footer" src="images/logo/ohmyfood.png" alt="Le logo de Oh my food">
@@ -77,7 +125,7 @@
             <li><span class="fa-li"><i class="fas fa-utensils"></i></span>Proposer un restauntant</li>
             <li><span class="fa-li"><i class="fas fa-hands-helping"></i></span>Devenir partenaire</li>
             <li>Mention légales</li>
-            <li>Contact</li>
+            <li><a href="mailto:emuricardo@hotmail.com">Contact</a></li>
         </ul>
     </footer>
 </body>

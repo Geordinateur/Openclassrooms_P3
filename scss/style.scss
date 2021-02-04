@@ -2,18 +2,10 @@
 @import "libs/mixins.scss";
 @import "libs/scrollbar-mixin.scss";
 @import "../css/libs/all.css";
-
-// mes variables
-$shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.3);
-$primary: #9356dc;
-$secondary: #ff79da;
-$tertiary: #99e2d0;
-$quaternary: #eaeaea;
-$quinary: #f6f6f6;
-$black: #353535;
-$border-radius-totaly: 50px;
-$border-radius-medium: 10px;
-$font-family: "Roboto", sans-serif;
+@import "./utils/variables.scss";
+@import "./utils/mixins.scss";
+@import "./utils/keyframes.scss";
+@import "./utils/functions.scss";
 
 body {
   font-family: $font-family;
@@ -34,6 +26,42 @@ h3 {
   font-weight: bold;
 }
 
+h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.loading {
+  & ~ * {
+    opacity: 0;
+    animation: startup-body--disable 2000ms 1500ms forwards;
+  }
+  @include absolute-zero;
+  margin: auto;
+  text-align: center;
+  z-index: -1;
+  padding-top: 10rem;
+  & .progress {
+    border: solid 2px $senary;
+    padding: 0.1rem;
+    width: 70%;
+    height: 0.4rem;
+    margin: auto;
+    &__bar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, $secondary, $primary);
+      animation: startup-bar 900ms;
+      transform-origin: left;
+    }
+  }
+  .logo.header {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
 header {
   width: 100%;
   display: flex;
@@ -43,6 +71,12 @@ header {
   z-index: 1;
   align-items: center;
   padding: 0 2rem;
+  & .logo.header {
+    @include responsive($lg) {
+      width: 20rem;
+      margin: auto;
+    }
+  }
 
   img {
     width: 12rem;
@@ -66,49 +100,55 @@ nav {
 
   form {
     display: block;
-    color: $tertiary;
+    color: $senary;
     background: $quaternary;
     margin-bottom: 1rem;
     padding: 1rem;
     display: flex;
     justify-content: center;
+    padding-left: 7rem;
 
     input {
       border: 0;
       background: $quaternary;
-      color: $tertiary;
+      color: $senary;
       font-family: $font-family;
+      font-weight: bold;
+      font-size: 1rem;
       width: auto;
       padding: 0rem 0.8rem;
     }
   }
-}
-
-nav.menu {
-  display: flex;
-  padding-bottom: 0;
-  align-items: flex-end;
-  height: 265px;
-
-  h2 {
-    color: black;
-    font-family: Shrikhand;
-    font-weight: normal;
-    margin-bottom: -0.3rem;
+  h1,
+  p {
+    margin: 0 2rem;
   }
-}
-
-.a-la-francaise {
-  background: no-repeat
-    url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
-  background-size: cover;
-
   div {
     width: 100%;
-    background: white;
-    border-radius: 30px 30px 0 0;
+    background: $quinary;
     text-align: left;
     padding-top: 1rem;
+  }
+  &.menu {
+    display: flex;
+    padding-bottom: 0;
+    align-items: flex-end;
+    height: 265px;
+    &--a-la-francaise {
+      background: no-repeat
+        url("../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+      background-size: cover;
+      div {
+        border-radius: 30px 30px 0 0;
+      }
+    }
+
+    h2 {
+      color: black;
+      font-family: Shrikhand;
+      font-weight: normal;
+      margin-bottom: -0.3rem;
+    }
   }
 }
 
@@ -123,11 +163,37 @@ nav.menu {
   color: white;
   font-weight: bold;
   background: linear-gradient(to bottom right, $secondary, $primary);
-}
-
-.btn-nav {
-  width: 20rem;
-  box-shadow: $shadow;
+  box-shadow: $shadow--darken;
+  z-index: 1;
+  position: relative;
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+  &::after {
+    content: "";
+    background: linear-gradient(
+      to bottom right,
+      lighten($secondary, 5),
+      lighten($primary, 5)
+    );
+    border-radius: $border-radius-totaly;
+    box-shadow: $shadow;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 250ms;
+    @include absolute-zero;
+  }
+  &__nav {
+    //    width: 20rem;
+    width: 13rem;
+  }
+  &__confirm {
+    width: 20rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
 }
 
 aside {
@@ -179,7 +245,7 @@ section {
   width: 100%;
   padding: 1.5rem 0;
 
-  div.restaurant {
+  .restaurant {
     //display: block;
     box-shadow: $shadow;
     margin: 1rem 1rem;
@@ -192,7 +258,6 @@ section {
       padding-top: 0.5rem;
     }
   }
-
   img {
     object-fit: cover;
     width: 100%;
@@ -200,12 +265,11 @@ section {
     border-radius: 10px 10px 0 0;
     padding-bottom: 0.5rem;
   }
-
   .new::before {
     content: "Nouveau"; /* Insert content that looks like bullets */
     display: inline;
-    color: green; /* Or a color you prefer */
-    background: lightgreen;
+    color: #008766; /* Or a color you prefer */
+    background: #99e2d0;
     position: relative;
     margin-top: -1.8rem;
     float: right;
@@ -216,28 +280,46 @@ section {
     top: 2.5rem;
     right: 1rem;
   }
-}
-
-
-section.menu {
-  h3 {
-    text-transform: uppercase;
-    flex-basis: 100%;
-    border: 10px solid;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-image-slice: 1;
-    border-width: 3px;
-    border-image-source: linear-gradient(to right, $tertiary 11%, rgba(255, 255, 255, 0.0) 11% 90%);
-  }
-  hr {
-    border: none;
-    border-top: 3px solid $tertiary;
-    overflow: visible;
-    text-align: left;
-    height: 5px;
-    width: 20px;
+  &.menu {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1rem;
+    h3 {
+      text-transform: uppercase;
+      flex-basis: 100%;
+      border: 10px solid;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-image-slice: 1;
+      border-width: 3px;
+      border-image-source: linear-gradient(
+        to right,
+        $tertiary 11%,
+        rgba(255, 255, 255, 0) 11% 90%
+      );
+      padding-bottom: 0.2rem;
+      font-weight: normal;
+    }
+    .content {
+      width: 100%;
+      background: white;
+      border-radius: $border-radius-medium;
+      box-shadow: $shadow;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      margin: 0.6rem 0;
+      @for $i from 1 through 3 {
+        &__#{$i} {
+          opacity: 0;
+          animation: menu-translate-#{$i} 900ms 300ms both;
+        }
+      }
+    }
+    div.price {
+      align-self: flex-end;
+    }
   }
 }
 
@@ -250,37 +332,72 @@ section.menu {
   font-size: 1.8rem;
 }
 
-.far.fa-heart:hover,
-.far.fa-heart:active {
-  font-weight: 900;
-  background: -webkit-linear-gradient($primary, $secondary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.far {
+  &.fa-heart {
+    &::after {
+      @include absolute-zero;
+      transition: transform 230ms ease-in-out;
+      content: "\f004";
+      font-weight: 900;
+      background: linear-gradient($primary, $secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: scale(0);
+    }
+    &::before {
+      transition: opacity 500ms;
+    }
+    &:hover,
+    &:active {
+      &::before {
+        opacity: 1;
+      }
+      &::after {
+        // transform: scale(0.9);
+        transform: scale(1.06);
+      }
+    }
+  }
 }
 
 footer {
-  background: $black;
+  a {
+    color: white;
+  }
+  background: $senary;
   color: white;
   width: 100%;
   margin-top: 2rem;
   padding: 2rem;
-
   .logo {
     width: 7rem;
     filter: invert(100%);
     padding-bottom: 0.9rem;
   }
-
   li {
     padding: 0.4rem 0;
   }
-
   li:nth-child(3),
   :nth-child(4) {
     margin-left: -1.6rem;
   }
-
   .fa-ul {
     margin-left: 1.5rem;
+  }
+}
+
+.disable {
+  opacity: 0;
+}
+
+.operation {
+  & i {
+    color: lighten($senary, 30%);
+  }
+  & .active {
+    background: lighten($primary, 35%);
+    & i {
+      color: $primary;
+    }
   }
 }
