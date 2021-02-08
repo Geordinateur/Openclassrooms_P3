@@ -41,7 +41,7 @@ h4 {
   margin: auto;
   text-align: center;
   z-index: -1;
-  padding-top: 10rem;
+  padding-top: 15rem;
   & .progress {
     border: solid 2px $senary;
     padding: 0.1rem;
@@ -139,7 +139,7 @@ nav {
         url("../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
       background-size: cover;
       div {
-        border-radius: 30px 30px 0 0;
+        border-radius: 40px 40px 0 0;
       }
     }
 
@@ -149,50 +149,6 @@ nav {
       font-weight: normal;
       margin-bottom: -0.3rem;
     }
-  }
-}
-
-.btn {
-  display: block;
-  text-align: center;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.2rem;
-  border-radius: $border-radius-totaly;
-  color: white;
-  font-weight: bold;
-  background: linear-gradient(to bottom right, $secondary, $primary);
-  box-shadow: $shadow--darken;
-  z-index: 1;
-  position: relative;
-  &:hover {
-    &::after {
-      opacity: 1;
-    }
-  }
-  &::after {
-    content: "";
-    background: linear-gradient(
-      to bottom right,
-      lighten($secondary, 5),
-      lighten($primary, 5)
-    );
-    border-radius: $border-radius-totaly;
-    box-shadow: $shadow;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 250ms;
-    @include absolute-zero;
-  }
-  &__nav {
-    //    width: 20rem;
-    width: 13rem;
-  }
-  &__confirm {
-    width: 20rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
   }
 }
 
@@ -243,9 +199,8 @@ aside {
 
 section {
   width: 100%;
-  padding: 1.5rem 0;
 
-  .restaurant {
+  .accueil {
     //display: block;
     box-shadow: $shadow;
     margin: 1rem 1rem;
@@ -257,6 +212,21 @@ section {
       padding-left: 1rem;
       padding-top: 0.5rem;
     }
+    .new::before {
+      content: "Nouveau"; /* Insert content that looks like bullets */
+      display: inline;
+      color: #008766; /* Or a color you prefer */
+      background: #99e2d0;
+      position: relative;
+      margin-top: -1.8rem;
+      float: right;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      top: 2.5rem;
+      right: 1rem;
+    }
   }
   img {
     object-fit: cover;
@@ -265,26 +235,16 @@ section {
     border-radius: 10px 10px 0 0;
     padding-bottom: 0.5rem;
   }
-  .new::before {
-    content: "Nouveau"; /* Insert content that looks like bullets */
-    display: inline;
-    color: #008766; /* Or a color you prefer */
-    background: #99e2d0;
-    position: relative;
-    margin-top: -1.8rem;
-    float: right;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    top: 2.5rem;
-    right: 1rem;
-  }
+
   &.menu {
     display: flex;
     flex-flow: row wrap;
-    padding: 1rem;
+    //    padding: 1rem;
+    & h3:not(:first-child) {
+      padding-top: 1.8rem;
+    }
     h3 {
+      margin: 0 1rem;
       text-transform: uppercase;
       flex-basis: 100%;
       border: 10px solid;
@@ -302,24 +262,138 @@ section {
       font-weight: normal;
     }
     .content {
+      min-width: 90%;
       width: 100%;
       background: white;
       border-radius: $border-radius-medium;
       box-shadow: $shadow;
-      padding: 1rem;
+      margin: 0.6rem 1rem;
       display: flex;
-      justify-content: space-between;
-      margin: 0.6rem 0;
+      flex-flow: row nowrap;
+      overflow: hidden;
       @for $i from 1 through 3 {
         &__#{$i} {
           opacity: 0;
           animation: menu-translate-#{$i} 900ms 300ms both;
         }
       }
+      & div:nth-child(1) {
+        background: green;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 1rem;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        flex: 1;
+        p,
+        h4 {
+          overflow: hidden;
+          word-break: break-all;
+          text-overflow: ellipsis;
+        }
+      }
+      & div.select {
+        & i {
+          color: red;
+        }
+        & .spacer {
+          width: 10px;
+          height: 10px;
+          background: purple;
+          transition: transform 800ms ease;
+          transform: scaleX(10);
+        }
+      }
     }
-    div.price {
-      align-self: flex-end;
+    div.select {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-weight: bold;
+      background: red;
+      transition: transform 800ms ease-in-out;
+      & p {
+        padding: 0 2rem 1rem 0;
+      }
+      & i {
+        text-align: center;
+        background: $tertiary;
+        height: 100%;
+        padding-top: 3.0rem;
+        font-size: 1.6rem;
+        color: white;
+      }
     }
+  }
+}
+
+footer {
+  a {
+    color: white;
+  }
+  background: $senary;
+  color: white;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2rem;
+  .logo {
+    width: 7rem;
+    filter: invert(100%);
+    padding-bottom: 0.9rem;
+  }
+  li {
+    padding: 0.4rem 0;
+  }
+  li:nth-child(3),
+  :nth-child(4) {
+    margin-left: -1.6rem;
+  }
+  .fa-ul {
+    margin-left: 1.5rem;
+  }
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.2rem;
+  border-radius: $border-radius-totaly;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(to bottom right, $secondary, $primary);
+  box-shadow: $shadow--darken;
+  z-index: 1;
+  position: relative;
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+  &::after {
+    content: "";
+    background: linear-gradient(
+      to bottom right,
+      lighten($secondary, 5),
+      lighten($primary, 5)
+    );
+    border-radius: $border-radius-totaly;
+    box-shadow: $shadow;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 250ms;
+    @include absolute-zero;
+  }
+  &__nav {
+    //    width: 20rem;
+    width: 13rem;
+  }
+  &__confirm {
+    width: 10rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -357,32 +431,6 @@ section {
         transform: scale(1.06);
       }
     }
-  }
-}
-
-footer {
-  a {
-    color: white;
-  }
-  background: $senary;
-  color: white;
-  width: 100%;
-  margin-top: 2rem;
-  padding: 2rem;
-  .logo {
-    width: 7rem;
-    filter: invert(100%);
-    padding-bottom: 0.9rem;
-  }
-  li {
-    padding: 0.4rem 0;
-  }
-  li:nth-child(3),
-  :nth-child(4) {
-    margin-left: -1.6rem;
-  }
-  .fa-ul {
-    margin-left: 1.5rem;
   }
 }
 
