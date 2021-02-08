@@ -278,7 +278,6 @@ section {
         }
       }
       & div:nth-child(1) {
-        background: green;
         white-space: nowrap;
         overflow: hidden;
         padding: 1rem;
@@ -292,16 +291,15 @@ section {
           text-overflow: ellipsis;
         }
       }
-      & div.select {
-        & i {
-          color: red;
+      &:hover,:active .select {
+        a {
+          width: 80px;
+          transition-duration: 500ms;
+          transition-property: width, background-color;
         }
-        & .spacer {
-          width: 10px;
-          height: 10px;
-          background: purple;
-          transition: transform 800ms ease;
-          transform: scaleX(10);
+        i {
+          transform: rotate(3turn);
+          transition: 2s;
         }
       }
     }
@@ -310,18 +308,23 @@ section {
       justify-content: space-between;
       align-items: flex-end;
       font-weight: bold;
-      background: red;
-      transition: transform 800ms ease-in-out;
       & p {
         padding: 0 2rem 1rem 0;
       }
-      & i {
+      & a {
+        &:hover,:active {
+          background-color: darken($tertiary, 20);
+        }
         text-align: center;
         background: $tertiary;
+        align-self: center;
         height: 100%;
-        padding-top: 3.0rem;
+        padding-top: 3rem;
         font-size: 1.6rem;
         color: white;
+        width: 0;
+        transition-duration: 500ms;
+        transition-property: width;
       }
     }
   }

@@ -325,7 +325,6 @@ section {
         opacity: 0;
         animation: menu-translate-3 900ms 300ms both; }
       section.menu .content div:nth-child(1) {
-        background: green;
         white-space: nowrap;
         overflow: hidden;
         padding: 1rem;
@@ -337,30 +336,33 @@ section {
           overflow: hidden;
           word-break: break-all;
           text-overflow: ellipsis; }
-      section.menu .content div.select i {
-        color: red; }
-      section.menu .content div.select .spacer {
-        width: 10px;
-        height: 10px;
-        background: purple;
-        transition: transform 800ms ease;
-        transform: scaleX(10); }
+      section.menu .content:hover a, section.menu .content :active .select a {
+        width: 80px;
+        transition-duration: 500ms;
+        transition-property: width, background-color; }
+      section.menu .content:hover i, section.menu .content :active .select i {
+        transform: rotate(3turn);
+        transition: 2s; }
     section.menu div.select {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      font-weight: bold;
-      background: red;
-      transition: transform 800ms ease-in-out; }
+      font-weight: bold; }
       section.menu div.select p {
         padding: 0 2rem 1rem 0; }
-      section.menu div.select i {
+      section.menu div.select a {
         text-align: center;
         background: #99e2d0;
+        align-self: center;
         height: 100%;
-        padding-top: 3.0rem;
+        padding-top: 3rem;
         font-size: 1.6rem;
-        color: white; }
+        color: white;
+        width: 0;
+        transition-duration: 500ms;
+        transition-property: width; }
+        section.menu div.select a:hover, section.menu div.select a :active {
+          background-color: #4acbab; }
 
 footer {
   background: #353535;
