@@ -1,0 +1,69 @@
+@keyframes startup-bar {
+  0% {
+    transform: scaleX(0);
+  }
+  17% {
+    transform: scaleX(0.18);
+  }
+  24% {
+    transform: scaleX(0.4);
+    animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+  }
+  46% {
+    transform: scaleX(0.81);
+    animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes startup-body {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-9999px);
+  }
+}
+
+@keyframes startup-body--disable {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@for $i from 1 through 4 {
+  @keyframes menu-translate-#{$i} {
+    0% {
+        opacity: 0;
+      @if $i == 1 {
+        transform: translateY(30px);
+      } @else if $i == 2 {
+        transform: translateY(20px);
+      } @else if $i == 3 {
+        transform: translateY(10px);
+      } @else if $i == 4 {
+        transform: translateY(0px);
+      }
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes select-translate  {
+  0% {
+    transform: translateX(100px);
+    display: none;
+  }
+  100% {
+    transform: translateX(0);
+    display: block;
+  }
+}
