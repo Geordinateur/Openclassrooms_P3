@@ -269,11 +269,7 @@ section {
       border-right: none;
       border-image-slice: 1;
       border-width: 3px;
-      border-image-source: linear-gradient(
-        to right,
-        $tertiary 11%,
-        rgba(255, 255, 255, 0) 11% 90%
-      );
+      border-image-source: linear-gradient(to right, $tertiary 11%, rgba(255, 255, 255, 0) 11%);
       padding-bottom: 0.2rem;
       font-weight: normal;
     }
