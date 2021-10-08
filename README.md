@@ -2,7 +2,7 @@
 ## Compétences évaluées
 - Mettre en place une structure de navigation pour un site web
 - Mettre en place son environnement Front-End
-- Utiliser un système de gestion de versions pourle suivi du projet et son hébergement
+- Utiliser un système de gestion de versions pour le suivi du projet et son hébergement
 - Assurer la cohérence graphique d'un site web
 
 ## Fonctionnalités
